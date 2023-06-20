@@ -12,3 +12,9 @@ def index():
 def authors():
     authors = Author.get_all_authors()
     return render_template("authors.html", all_authors=authors)
+
+# Route for creating/saving a new author
+@app.route('/create/author', methods=['POST'])
+def create_author():
+    Author.save_author(request.form)
+    return redirect('/authors')

@@ -23,3 +23,10 @@ class Author:
         for one_author in results:
             authors_list.append(cls(one_author))
         return authors_list
+
+    @classmethod
+    def save_author(cls, data):
+        query = "INSERT INTO authors (name) VALUES (%(name)s);"
+        result = connectToMySQL(db).query_db(query, data)
+        # whenever we save; pymysql returns the id of the row of data
+        return result
