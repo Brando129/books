@@ -16,5 +16,8 @@ def authors():
 # Route for creating/saving a new author
 @app.route('/create/author', methods=['POST'])
 def create_author():
-    Author.save_author(request.form)
+    data = {
+        "name": request.form['name']
+    }
+    Author.save_author(data)
     return redirect('/authors')
