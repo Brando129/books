@@ -12,18 +12,19 @@ class Author:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
-    # gets all the data in authors from the database
+    # method that gets all the data in authors from the database
     @classmethod
     def get_all_authors(cls):
         query = "SELECT * FROM authors;"
         authors_list = []
         results = connectToMySQL(db).query_db(query)
 
-        # "one_author" is a representation of author data
-        for one_author in results:
-            authors_list.append(cls(one_author))
+        # "info" is a representation of author data
+        for info in results:
+            authors_list.append(cls(info))
         return authors_list
 
+    # method that saves the new author to the database
     @classmethod
     def save_author(cls, data):
         query = "INSERT INTO authors (name) VALUES (%(name)s);"
