@@ -10,3 +10,15 @@
     margin-bottom: 6px;
     color: white;
 }
+
+.add_book_link {
+    margin-left: 125px;
+    font-size: larger;
+    text-decoration: none;
+}
+
+.authors_list {
+    text-decoration: none;
+    color: gold;
+    font-size: larger;
+}

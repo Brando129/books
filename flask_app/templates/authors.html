@@ -24,11 +24,11 @@
             <h2 class="text-primary">All Authors</h2>
             {% for one_author in all_authors %}
             <p>
-                <a href="/author/{{one_author.id}}" class="text-warning">{{one_author.name}}</a>
+                <a href="/authors/{{one_author.id}}" class="authors_list">{{one_author.name}}</a>
             </p>
             {% endfor %}
         </div>
     </div>
-    <a href="#" class="text-center mx-auto">Add Book</a>
+    <a href="#" class="add_book_link">Add Book</a>
 </body>
 </html>

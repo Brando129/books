@@ -19,7 +19,7 @@ class Author:
         authors_list = []
         results = connectToMySQL(db).query_db(query)
 
-        # "d" is a representation of author data
-        for d in results:
-            authors_list.append(cls(d))
+        # "one_author" is a representation of author data
+        for one_author in results:
+            authors_list.append(cls(one_author))
         return authors_list
