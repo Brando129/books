@@ -1,7 +1,10 @@
+# SQL Connection
 from flask_app.config.mysqlconnection import connectToMySQL
 
+# database name
 db = "books_schema"
 
+# Author class
 class Author:
     def __init__(self, data):
         self.id = data['id']
@@ -9,14 +12,14 @@ class Author:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
-# gets all the data in authors from the database
-@classmethod
-def get_all_authors(cls):
-    query = "SELECT * FROM authors;"
-    results = connectToMySQL(db).query_db(query)
-    authors = []
+    # gets all the data in authors from the database
+    @classmethod
+    def get_all_authors(cls):
+        query = "SELECT * FROM authors;"
+        authors_list = []
+        results = connectToMySQL(db).query_db(query)
 
-    # "d" is a representation of data
-    for d in results:
-        authors.append(cls(d))
-    return authors
+        # "d" is a representation of author data
+        for d in results:
+            authors_list.append(cls(d))
+        return authors_list

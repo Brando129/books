@@ -3,3 +3,10 @@
     margin: 0;
     padding: 0;
 }
+
+/* Authors HTML */
+
+.label {
+    margin-bottom: 6px;
+    color: white;
+}
