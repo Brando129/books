@@ -19,10 +19,17 @@ class Book:
     @classmethod
     def get_all_books(cls):
         query = "SELECT * FROM books;"
-        books = []
+        books_list = []
         results = connectToMySQL(db).query_db(query)
 
         # "details" is a representation of book data
         for details in results:
-            books.append(cls(details))
-        return books
+            books_list.append(cls(details))
+        return books_list
+
+    # method that saves the new book to the database
+    @classmethod
+    def save_book(cls, data):
+        query = """INSERT INTO books (title, num_of_pages, created_at, updated_at)
+                VALUES (%(title)s, %(num_of_pages)s, %(created_at)s, %(updated_at)s;)"""
+        return connectToMySQL(db).query_db(query, data)
