@@ -19,16 +19,16 @@
                 <input type="text" name="title" class="form-control">
             </div>
             <div class="form-group">
-                <label class="label" for="name">Number of Pages:</label>
+                <label class="label mt-2" for="name">Number of Pages:</label>
                 <input type="text" name="num_of_pages" class="form-control">
             </div>
-            <input type="submit" value="Add Book" class="btn btn-primary btn-outline-dark mt-2">
+            <input type="submit" value="Add Book" class="btn btn-primary btn-outline-dark mt-3">
         </form>
         <div class="col-4 bg-dark text-light text-center my-5 p-4">
             <h2 class="text-primary">All Books</h2>
             {% for one_book in all_books %}
             <p>
-                <a href="/books/{{one_book.id}}" class="authors_list">{{one_book.name}}</a>
+                <a href="/books/{{one_book.id}}" class="authors_list">{{one_book.title}}</a>
             </p>
             {% endfor %}
         </div>

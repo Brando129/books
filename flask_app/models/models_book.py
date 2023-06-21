@@ -30,6 +30,6 @@ class Book:
     # method that saves the new book to the database
     @classmethod
     def save_book(cls, data):
-        query = """INSERT INTO books (title, num_of_pages, created_at, updated_at)
-                VALUES (%(title)s, %(num_of_pages)s, %(created_at)s, %(updated_at)s;)"""
+        query = """INSERT INTO books (title, num_of_pages)
+                VALUES (%(title)s, %(num_of_pages)s);"""
         return connectToMySQL(db).query_db(query, data)

@@ -1,7 +1,7 @@
 from flask import render_template, redirect, request
 from flask_app import app
-from flask_app.models.models_author import Author
 from flask_app.models.models_book import Book
+from flask_app.models.models_author import Author
 
 # Route getting all the books
 @app.route('/books')
@@ -10,7 +10,7 @@ def books():
     return render_template('books.html', all_books=books)
 
 # Route for displaying the books page
-@app.route('/create/book', mehtods=['POST'])
+@app.route('/create/book', methods=['POST'])
 def create_book():
     data = {
         "title": request.form['title'],
