@@ -1,6 +1,6 @@
 # SQL Connection
 from flask_app.config.mysqlconnection import connectToMySQL
-
+from flask_app.models.models_author import Author
 
 
 # Database name
@@ -14,6 +14,9 @@ class Book:
         self.num_of_pages = data['num_of_pages']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        # list of the authors who have favorited this book
+        self.authors_who_favorited = []
+
 
     # classmethod for getting all the books in the database
     @classmethod
@@ -52,5 +55,5 @@ class Book:
                 "created_at": row['authors.created_at'],
                 "updated_at": row['authors.updated_at']
             }
-            book.authors_who_favorited.append(author.Author(data))
+            book.authors_who_favorited.append(Author.Author(data))
         return book

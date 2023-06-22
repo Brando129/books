@@ -1,6 +1,6 @@
 # SQL Connection
 from flask_app.config.mysqlconnection import connectToMySQL
-from flask_app.models.models_book import Book
+
 
 # database name
 db = "books_schema"
@@ -12,8 +12,9 @@ class Author:
         self.name = data['name']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.favorite_books = []
 
-    # method that gets all the data in authors from the database
+    # classmethod that gets all the data in authors from the database
     @classmethod
     def get_all_authors(cls):
         query = "SELECT * FROM authors;"
@@ -25,7 +26,7 @@ class Author:
             authors_list.append(cls(info))
         return authors_list
 
-    # method that saves the new author to the database
+    # classmethod that saves the new author to the database
     @classmethod
     def save_author(cls, data):
         query = "INSERT INTO authors (name) VALUES (%(name)s);"
@@ -33,7 +34,7 @@ class Author:
         # whenever we save; pymysql returns the id of the row of data
         return result
 
-    #class method for...
+    # classmethod that gets the authors id that doesn't match a favorite book
     @classmethod
     def unfavorited_authors(cls, data):
         query = """SELECT * FROM authors WHERE authors.id NOT IN
