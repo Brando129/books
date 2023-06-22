@@ -25,5 +25,5 @@ def show_book(id):
     data = {
         "id": id
     }
-    return render_template('show_book.html', book=Book.get_book_by_id(data), unfavorited_authors=Authors.
+    return render_template('show_book.html', book=Book.get_book_by_id(data), unfavorited_authors=Author.
                           unfavorited_authors(data))

@@ -11,6 +11,35 @@
     <title>Authors Show</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="authors_fav_container">
+            <h2 class="card-title text-primary">{{author.name}}'s Favorites</h2>
+            <table class="table table-info">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Number of pages</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ninja in dojo.ninjas %}
+                    <tr>
+                        <td>{{}}</td>
+                        <td>{{}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="add_authors_fav_container">
+            <h2>Add Author's Favorite</h2>
+            <label for="book">Book:</label>
+            <select name="" id="">
+                <option value="">{{}}</option>
+            </select>
+            <button class="btn-primary">Add</button>
+        </div>
+        <a href="/">Home</a>
+    </div>
 </body>
 </html>
