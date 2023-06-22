@@ -18,3 +18,12 @@ def create_book():
     }
     book_id = Book.save_book(data)
     return redirect('/books')
+
+# Route for ...
+@app.route('/book/<int:id>')
+def show_book(id):
+    data = {
+        "id": id
+    }
+    return render_template('show_book.html', book=Book.get_book_by_id(data), unfavorited_authors=Authors.
+                          unfavorited_authors(data))
