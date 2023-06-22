@@ -57,3 +57,15 @@ class Book:
             }
             book.authors_who_favorited.append(author.Author(data))
         return book
+
+    # classmethod for getting books that are not favorited by an author
+    @classmethod
+    def unfavorited_books(cls, data):
+        query = """SELECT * FROM books WHERE books.id NOT IN (SELECT book_id FROM favorites WHERE
+                author_id = %(id)s);"""
+        results = connectToMySQL('db').query_db(query, data)
+        books = []
+        for row in results:
+            books.append(cls(row))
+        print(books)
+        return books
