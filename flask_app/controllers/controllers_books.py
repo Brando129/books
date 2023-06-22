@@ -25,7 +25,7 @@ def show_book(id):
     data = {
         "id": id
     }
-    return render_template('books_show.html', book=Book.get_book_by_id(data), unfavorited_authors=Author.
+    return render_template('show_books.html', book=Book.get_book_by_id(data), unfavorited_authors=Author.
     unfavorited_authors(data))
 
 # Route for ...

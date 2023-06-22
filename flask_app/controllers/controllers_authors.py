@@ -23,3 +23,12 @@ def create_author():
     }
     Author.save_author(data)
     return redirect('/authors')
+
+# Route for getting one author
+@app.route('/author/<int:id>')
+def show_author(id):
+    data = {
+        "id": id
+    }
+    return render_template('show_authors.html', author=Author.get_by_id(data), unfavorited_books=Book.
+    unfavorited_books(data))

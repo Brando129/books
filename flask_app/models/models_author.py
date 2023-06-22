@@ -44,3 +44,34 @@ class Author:
         for row in results:
             authors.append(cls(row))
         return authors
+
+    # classmethod that a favorite book to an author
+    @classmethod
+    def add_favorite(cls, data):
+        query = """INSERT INTO favorites (author_id, book_id)
+                VALUES (%(author_id)s, %(book_id)s);"""
+        return connectToMySQL(db).query_db(query, data)
+
+    # classmethod to get all the favorited
+    @classmethod
+    def get_by_id(cls, data):
+        query = """SELECT * FROM authors LEFT JOIN favorites ON authors.id = favorites.author_id
+                LEFT JOIN books ON books.id = favorites.book_id WHERE authors.id = %(id)s;"""
+        results = connectToMySQL(db).query_db(query, data)
+        # Creates instance of author object from row one
+        author = cls(results[0])
+        # Goes through all the results and gets the data
+        for row in results:
+            # If there are no favorites
+            if row['books.id'] == None:
+                break
+            # Common column names come back with the specific tables attached
+            data = {
+                "id": row['books.id'],
+                "name": row['titile'],
+                "num_of_pages": row['num_of_pages'],
+                "created_at": row['books.created_at'],
+                "updated_at": row['books.updated_at']
+            }
+            author.favorite_books.append(book.Book(data))
+        return author
