@@ -1,5 +1,6 @@
 # SQL Connection
 from flask_app.config.mysqlconnection import connectToMySQL
+from flask_app.models import models_book
 
 
 # database name
@@ -73,5 +74,5 @@ class Author:
                 "created_at": row['books.created_at'],
                 "updated_at": row['books.updated_at']
             }
-            author.favorite_books.append(book.Book(data))
+            author.favorite_books.append(models_book.Book(data))
         return author

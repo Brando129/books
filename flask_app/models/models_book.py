@@ -1,6 +1,6 @@
 # SQL Connection
 from flask_app.config.mysqlconnection import connectToMySQL
-from flask_app.models.models_author import Author
+from flask_app.models import models_author
 
 
 # Database name
@@ -55,7 +55,7 @@ class Book:
                 "created_at": row['authors.created_at'],
                 "updated_at": row['authors.updated_at']
             }
-            book.authors_who_favorited.append(author.Author(data))
+            book.authors_who_favorited.append(models_author.Author(data))
         return book
 
     # classmethod for getting books that are not favorited by an author

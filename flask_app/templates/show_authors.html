@@ -11,26 +11,27 @@
     <title>Author Show</title>
 </head>
 <body>
+    <!-- This page needs work -->
     <div class="d-flex justify-content-around flex-wrap">
         <div class="col-6">
             <h2 class="text-center">Title: {{book.title}}</h2>
             <p>Favorited by:</p>
-            {% for author in book.authors_who_favorited %}
-                <p>{{author.name}}</p>
+            {% for author in author.books_who_favorited %}
+                <p>{{book.title}}</p>
             {% endfor %}
         </div>
-        <form action="/join/author" method="POST" class="col-6">
-            <h2 class="text-info">Add Book's Favorite</h2>
+        <form action="/join/book" method="POST" class="col-6">
+            <h2 class="text-info">Add Author's Favorite</h2>
             <input type="hidden" name="book_id" value="{{book.id}}">
             <div class="form-group">
-                <label for="author_id">Book:</label>
-                <select name="author_id" class="form-control">
+                <label for="book_id">Author:</label>
+                <select name="book_id" class="form-control">
                     {% for author in unfavorited_authors %}
-                        <option value="{{author.id}}">{{author.name}}</option>
+                        <option value="{{book.id}}">{{book.title}}</option>
                     {% endfor %}
                 </select>
             </div>
-            <input type="submit" value="Add Book" class="btn btn-primary">
+            <input type="submit" value="Add" class="btn btn-primary">
         </form>
         <a href="/">Home</a>
 </body>
