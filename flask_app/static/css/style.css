@@ -33,3 +33,13 @@
     font-size: larger;
     margin-left: 10px;
 }
+
+.author_option {
+    margin-left: 10px;
+}
+
+.home_link {
+    margin-right: 1400px;
+    font-size: larger;
+    text-decoration: none;
+}

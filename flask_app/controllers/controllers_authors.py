@@ -25,7 +25,7 @@ def create_author():
     return redirect('/authors')
 
 # Route for getting one author
-@app.route('/author/<int:id>')
+@app.route('/authors/<int:id>')
 def show_author(id):
     data = {
         "id": id
@@ -41,4 +41,4 @@ def join_book():
         'book_id': request.form['book_id']
     }
     Author.add_favorite(data)
-    return redirect(f"/author/{request.form['author_id']}")
+    return redirect(f"/authors/{request.form['author_id']}")

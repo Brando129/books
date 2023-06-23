@@ -16,7 +16,7 @@
             <h2 class="text-center">Title: {{book.title}}</h2>
             <p class="fav_by">Favorited by:</p>
             {% for author in book.authors_who_favorited %}
-                <p>{{author.name}}</p>
+                <p class="fav_by">{{author.name}}</p>
             {% endfor %}
         </div>
         <form action="/join/author" method="POST" class="col-6">
@@ -32,7 +32,7 @@
             </div>
             <input type="submit" value="Add Book" class="btn btn-primary mt-3">
         </form>
-        <a href="/">Home</a>
+        <a class="home_link" href="/">Home</a>
     </div>
 </body>
 </html>
