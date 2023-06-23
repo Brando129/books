@@ -14,7 +14,7 @@
     <div class="d-flex justify-content-around flex-wrap">
         <div class="col-6">
             <h2 class="text-center">Title: {{book.title}}</h2>
-            <p>Favorited by:</p>
+            <p class="fav_by">Favorited by:</p>
             {% for author in book.authors_who_favorited %}
                 <p>{{author.name}}</p>
             {% endfor %}
@@ -23,14 +23,14 @@
             <h2 class="text-info">Add Book's Favorite</h2>
             <input type="hidden" name="book_id" value="{{book.id}}">
             <div class="form-group">
-                <label for="author_id">Book:</label>
+                <label class="book_label" for="author_id">Book:</label>
                 <select name="author_id" class="form-control">
                     {% for author in unfavorited_authors %}
                         <option value="{{author.id}}">{{author.name}}</option>
                     {% endfor %}
                 </select>
             </div>
-            <input type="submit" value="Add Book" class="btn btn-primary">
+            <input type="submit" value="Add Book" class="btn btn-primary mt-3">
         </form>
         <a href="/">Home</a>
     </div>

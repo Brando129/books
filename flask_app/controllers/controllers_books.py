@@ -20,7 +20,7 @@ def create_book():
     return redirect('/books')
 
 # Route for ...
-@app.route('/book/<int:id>')
+@app.route('/books/<int:id>')
 def show_book(id):
     data = {
         "id": id

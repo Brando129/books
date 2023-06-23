@@ -22,3 +22,14 @@
     color: gold;
     font-size: larger;
 }
+
+/* show_books HTML */
+.book_label {
+    font-size: larger;
+    margin-bottom: 5px;
+}
+
+.fav_by {
+    font-size: larger;
+    margin-left: 10px;
+}
