@@ -69,7 +69,7 @@ class Author:
             # Common column names come back with the specific tables attached
             data = {
                 "id": row['books.id'],
-                "name": row['title'],
+                "title": row['title'],
                 "num_of_pages": row['num_of_pages'],
                 "created_at": row['books.created_at'],
                 "updated_at": row['books.updated_at']
