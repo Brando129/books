@@ -39,7 +39,7 @@
                 <label class="author_label" for="book_id">Author:</label>
                 <select name="book_id" class="form-control">
                     {% for book in favorite_books %}
-                    <option value="{{book.id}}">{{books.title}}</option>
+                    <option value="{{book.id}}">{{book.title}}</option>
                     {% endfor %}
                 </select>
             </div>
