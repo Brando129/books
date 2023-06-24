@@ -19,7 +19,7 @@ def create_book():
     book_id = Book.save_book(data)# this variable is not being accessed
     return redirect('/books')
 
-# Route for ...
+# Route for getting a book
 @app.route('/books/<int:id>')
 def show_book(id):
     data = {
@@ -28,7 +28,7 @@ def show_book(id):
     return render_template('show_books.html', book=Book.get_book_by_id(data), unfavorited_authors=Author.
     unfavorited_authors(data))
 
-# Route for ...
+# Route for joining a author that favorited a book
 @app.route('/join/author', methods=['POST'])
 def join_author():
     data = {

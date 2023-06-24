@@ -24,7 +24,7 @@ def create_author():
     Author.save_author(data)
     return redirect('/authors')
 
-# Route for getting one author
+# Route for getting a author
 @app.route('/authors/<int:id>')
 def show_author(id):
     data = {
