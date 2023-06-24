@@ -14,7 +14,7 @@
     <!-- This page needs work -->
     <div class="d-flex justify-content-around flex-wrap">
         <div class="col-6">
-            <h2 class="text-center">'s favorites </h2>
+            <h2 class="text-center">{{author.name}}'s favorites </h2>
             <table>
                 <thead class="table table-info">
                     <tr>
@@ -23,10 +23,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for book in  %}
+                    {% for book in favorite_books %}
                     <tr>
-                        <td>{{book.title}}</td>
-                        <td>{{book.num_of_pages}}</td>
+                        <td>{{books.title}}</td>
+                        <td>{{books.num_of_pages}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
