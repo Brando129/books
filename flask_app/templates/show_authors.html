@@ -13,10 +13,10 @@
 <body>
     <!-- This page needs work -->
     <div class="d-flex justify-content-around flex-wrap">
-        <div class="col-6">
+        <div class="col-5">
             <h2 class="text-center">{{author.name}}'s favorites </h2>
-            <table>
-                <thead class="table table-info">
+            <table class="table table-info">
+                <thead>
                     <tr>
                         <th>Title</th>
                         <th>Number of pages</th>
@@ -34,17 +34,18 @@
         </div>
         <form action="/join/book" method="POST" class="col-6">
             <h2 class="text-info">Add Author's Favorite</h2>
-            <input type="hidden" name="book_id" value="">
+            <input type="hidden" name="author_id" value="{{author.id}}">
             <div class="form-group">
-                <label for="book_id">Author:</label>
+                <label class="author_label" for="book_id">Author:</label>
                 <select name="book_id" class="form-control">
-                    {% for author in unfavorited_authors %}
-                        <option value=""></option>
+                    {% for book in favorite_books %}
+                        <option value="{{books.id}}">{{books.title}}</option>
                     {% endfor %}
                 </select>
             </div>
-            <input type="submit" value="Add" class="btn btn-primary">
+            <input type="submit" value="Add" class="btn btn-primary mt-3">
         </form>
-        <a href="/">Home</a>
+        <a class="show_authors_home_link" href="/">Home</a>
+    </div>
 </body>
 </html>

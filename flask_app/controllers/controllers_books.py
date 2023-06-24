@@ -16,7 +16,7 @@ def create_book():
         "title": request.form['title'],
         "num_of_pages": request.form['num_of_pages']
     }
-    book_id = Book.save_book(data)
+    book_id = Book.save_book(data)# this variable is not being accessed
     return redirect('/books')
 
 # Route for ...

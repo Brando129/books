@@ -4,7 +4,6 @@
     padding: 0;
 }
 
-/* Authors HTML */
 
 .label {
     margin-bottom: 6px;
@@ -23,8 +22,9 @@
     font-size: larger;
 }
 
-/* show_books HTML */
-.book_label {
+
+.book_label,
+.author_label {
     font-size: larger;
     margin-bottom: 5px;
 }
@@ -43,3 +43,10 @@
     font-size: larger;
     text-decoration: none;
 }
+
+.show_authors_home_link {
+    margin-right: 1340px;
+    font-size: larger;
+    text-decoration: none;
+}
+
