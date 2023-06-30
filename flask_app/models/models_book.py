@@ -22,13 +22,12 @@ class Book:
     @classmethod
     def get_all_books(cls):
         query = "SELECT * FROM books;"
-        books_list = []
+        books = []
         results = connectToMySQL(db).query_db(query)
-
-        # "details" is a representation of book data
-        for details in results:
-            books_list.append(cls(details))
-        return books_list
+        # "info" is a representation of book data
+        for info in results:
+            books.append(cls(info))
+        return books
 
     # classmethod that saves the new book to the database
     @classmethod
@@ -39,7 +38,7 @@ class Book:
 
     # classmethod that gets a book with all the favorited authors
     @classmethod
-    def get_book_by_id(cls, data):
+    def get_by_id(cls, data):
         query = """SELECT * FROM books LEFT JOIN favorites ON books.id = favorites.book_id
                 LEFT JOIN authors ON authors.id = favorites.author_id WHERE books.id = %(id)s;"""
         results = connectToMySQL(db).query_db(query, data)
@@ -67,5 +66,4 @@ class Book:
         books = []
         for row in results:
             books.append(cls(row))
-        print(books)
         return books

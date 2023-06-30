@@ -19,13 +19,12 @@ class Author:
     @classmethod
     def get_all_authors(cls):
         query = "SELECT * FROM authors;"
-        authors_list = []
+        authors = []
         results = connectToMySQL(db).query_db(query)
-
         # "info" is a representation of author data
         for info in results:
-            authors_list.append(cls(info))
-        return authors_list
+            authors.append(cls(info))
+        return authors
 
     # classmethod that saves the new author to the database
     @classmethod
@@ -46,7 +45,7 @@ class Author:
             authors.append(cls(row))
         return authors
 
-    # classmethod that a favorite book to an author
+    # classmethod that adds favorite book to an author
     @classmethod
     def add_favorite(cls, data):
         query = """INSERT INTO favorites (author_id, book_id)
@@ -75,4 +74,5 @@ class Author:
                 "updated_at": row['books.updated_at']
             }
             author.favorite_books.append(models_book.Book(data))
+        print(author.favorite_books)
         return author

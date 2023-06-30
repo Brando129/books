@@ -16,7 +16,7 @@ def create_book():
         "title": request.form['title'],
         "num_of_pages": request.form['num_of_pages']
     }
-    book_id = Book.save_book(data)
+    Book.save_book(data)
     return redirect('/books')
 
 # Route for getting a book
@@ -25,7 +25,7 @@ def show_book(id):
     data = {
         "id": id
     }
-    return render_template('show_books.html', book=Book.get_book_by_id(data), unfavorited_authors=Author.
+    return render_template('show_books.html', book=Book.get_by_id(data), unfavorited_authors=Author.
     unfavorited_authors(data))
 
 # Route for joining a author that favorited a book

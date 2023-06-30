@@ -36,10 +36,10 @@
             <h2 class="text-info">Add Author's Favorite</h2>
             <input type="hidden" name="author_id" value="{{author.id}}">
             <div class="form-group">
-                <label class="author_label" for="book_id">Author:</label>
+                <label class="author_label" for="book_id">Book:</label>
                 <select name="book_id" class="form-control">
                     {% for book in favorite_books %}
-                    <option value="{{book.id}}">{{book.title}}</option>
+                        <option value="{{book.id}}">{{book.title}}</option>
                     {% endfor %}
                 </select>
             </div>
