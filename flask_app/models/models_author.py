@@ -76,3 +76,5 @@ class Author:
             author.favorite_books.append(models_book.Book(data))
         print(author.favorite_books)
         return author
+    # The problem has to be with the get_by_id query. Its possible
+    # that the favorite_books list is not being populated

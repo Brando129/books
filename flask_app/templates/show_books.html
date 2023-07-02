@@ -12,14 +12,14 @@
 </head>
 <body>
     <div class="d-flex justify-content-around flex-wrap">
-        <div class="col-6">
-            <h2 class="text-center">Title: {{book.title}}</h2>
-            <p class="fav_by">Favorited by:</p>
+        <div class="col-5">
+            <h2 class="text-center text-info bg-dark mt-4">Title: {{book.title}}</h2>
+            <p class="fav_by text-center">Favorited by:</p>
             {% for author in book.authors_who_favorited %}
-                <p class="fav_by">{{author.name}}</p>
+                <p class="fav_by text-center">{{author.name}}</p>
             {% endfor %}
         </div>
-        <form action="/join/author" method="POST" class="col-6">
+        <form action="/join/author" method="POST" class="col-5  p-4 bg-dark text-light mt-4">
             <h2 class="text-info">Add Book's Favorite</h2>
             <input type="hidden" name="book_id" value="{{book.id}}">
             <div class="form-group">
