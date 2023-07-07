@@ -66,4 +66,5 @@ class Book:
         books = []
         for row in results:
             books.append(cls(row))
+            print(books)
         return books
