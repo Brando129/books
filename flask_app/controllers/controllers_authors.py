@@ -21,7 +21,7 @@ def show_author(id):
     data = {
         "id": id
     }
-    return render_template('show_authors.html', author=Author.get_by_id(data), unfavorited_books=Book.unfavorited_books(data))
+    return render_template('show_authors.html', author=Author.get_favorited_book_by_id(data), unfavorited_books=Book.unfavorited_books(data))
 
 
 # Post Routes

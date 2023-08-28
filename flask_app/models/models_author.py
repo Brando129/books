@@ -52,9 +52,9 @@ class Author:
                 VALUES (%(author_id)s, %(book_id)s);"""
         return connectToMySQL(db).query_db(query, data)
 
-    # classmethod to get all the favorited
+    # classmethod to get all the favorited books of an author
     @classmethod
-    def get_by_id(cls, data):
+    def get_favorited_book_by_id(cls, data):
         query = """SELECT * FROM authors LEFT JOIN favorites ON authors.id = favorites.author_id
                 LEFT JOIN books ON books.id = favorites.book_id WHERE authors.id = %(id)s;"""
         results = connectToMySQL(db).query_db(query, data)
@@ -73,7 +73,10 @@ class Author:
                 "created_at": row['books.created_at'],
                 "updated_at": row['books.updated_at']
             }
+            print("*"*25)
+            print(row)
             author.favorite_books.append(models_book.Book(data))
+            print("*"*25)
         print(author.favorite_books)
         return author
 
